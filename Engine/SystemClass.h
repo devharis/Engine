@@ -1,7 +1,4 @@
 #pragma once
-
-#ifndef _SYSTEMCLASS_H_
-#define _SYSTEMCLASS_H_
 #define WIN32_LEAN_AND_MEAN
 
 // Includes
@@ -43,5 +40,3 @@ static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 // Globals
 static SystemClass* ApplicationHandle = 0;
-
-#endif

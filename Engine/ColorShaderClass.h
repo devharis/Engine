@@ -1,7 +1,4 @@
 #pragma once
-#ifndef _COLORSHADERCLASS_H_
-#define _COLORSHADERCLASS_H_
-
 #pragma comment(lib, "D3DCompiler.lib")
 
 #include <d3d11.h>
@@ -43,5 +40,3 @@ private:
 	ID3D11InputLayout* m_layout;
 	ID3D11Buffer* m_matrixBuffer;
 };
-
-#endif

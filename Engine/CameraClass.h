@@ -1,6 +1,4 @@
 #pragma once
-#ifndef _CAMERACLASS_H_
-#define _CAMERACLASS_H_
 
 #include <DirectXMath.h>
 
@@ -25,5 +23,3 @@ private:
 	float m_rotationX, m_rotationY, m_rotationZ;
 	DirectX::XMMATRIX m_viewMatrix;
 };
-
-#endif

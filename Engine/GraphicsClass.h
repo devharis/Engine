@@ -1,6 +1,4 @@
 #pragma once
-#ifndef _GRAPHICSCLASS_H_
-#define _GRAPHICSCLASS_H_
 
 #include <windows.h>
 
@@ -34,6 +32,4 @@ private:
 	ModelClass* m_Model;
 	ColorShaderClass* m_ColorShader;
 };
-
-#endif
 

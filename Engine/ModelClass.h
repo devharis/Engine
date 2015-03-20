@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _MODELCLASS_H_
-#define _MODELCLASS_H_
-
 #include <d3d11.h>
 #include <DirectXMath.h>
 
@@ -37,6 +34,3 @@ private:
 	ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;
 	int m_vertexCount, m_indexCount;
 };
-
-#endif
-
