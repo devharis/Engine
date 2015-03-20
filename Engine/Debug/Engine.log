@@ -1,0 +1,22 @@
+﻿Build started 2015-03-20 19:23:29.
+     1>Project "c:\Users\Haris\documents\visual studio 2013\Projects\Engine\Engine\Engine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\Program\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GraphicsClass.cpp
+         GraphicsClass.cpp
+     1>c:\users\haris\documents\visual studio 2013\projects\engine\engine\graphicsclass.cpp(25): warning C4316: 'D3DClass' : object allocated on the heap may not be aligned 16
+     1>c:\users\haris\documents\visual studio 2013\projects\engine\engine\graphicsclass.cpp(40): warning C4316: 'CameraClass' : object allocated on the heap may not be aligned 16
+       Link:
+         E:\Program\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\haris\documents\visual studio 2013\Projects\Engine\Debug\Engine.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\haris\documents\visual studio 2013\Projects\Engine\Debug\Engine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\haris\documents\visual studio 2013\Projects\Engine\Debug\Engine.lib" /MACHINE:X86 Debug\CameraClass.obj
+         Debug\ColorShaderClass.obj
+         Debug\D3DClass.obj
+         Debug\GraphicsClass.obj
+         Debug\InputClass.obj
+         Debug\ModelClass.obj
+         Debug\SystemClass.obj
+         Debug\WinMain.obj
+         Engine.vcxproj -> c:\users\haris\documents\visual studio 2013\Projects\Engine\Debug\Engine.exe
+     1>Done Building Project "c:\Users\Haris\documents\visual studio 2013\Projects\Engine\Engine\Engine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.04
