@@ -13,14 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Shared Files">
-      <UniqueIdentifier>{6d3351ad-910c-4ca1-b0c4-66a4ee218c14}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WinMain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SystemClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -70,11 +64,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Color.vs">
-      <Filter>Shared Files</Filter>
-    </None>
     <None Include="Color.ps">
-      <Filter>Shared Files</Filter>
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Color.vs">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

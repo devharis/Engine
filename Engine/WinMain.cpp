@@ -1,20 +1,9 @@
-#include "WinMain.h"
 #include "SystemClass.h";
-
-
-WinMain::WinMain()
-{
-}
-WinMain::~WinMain()
-{
-}
-
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
 	SystemClass* System;
 	bool result;
-
 
 	// Create the system object.
 	System = new SystemClass;

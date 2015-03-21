@@ -130,9 +130,9 @@ bool GraphicsClass::Frame()
 
 bool GraphicsClass::Render()
 {
-	DirectX::XMMATRIX viewMatrix, projectionMatrix, worldMatrix;
+	DirectX::XMFLOAT4X4 viewMatrix, projectionMatrix, worldMatrix;
+	DirectX::XMFLOAT4X4 viewMatrixFloat;
 	bool result;
-
 
 	// Clear the buffers to begin the scene.
 	m_D3D->BeginScene(0.4f, 0.8f, 1.0f, 1.0f);
@@ -141,7 +141,7 @@ bool GraphicsClass::Render()
 	m_Camera->Render();
 
 	// Get the world, view, and projection matrices from the camera and d3d objects.
-	m_Camera->GetViewMatrix(viewMatrix);
+	m_Camera->GetViewMatrix(viewMatrixFloat);
 	m_D3D->GetWorldMatrix(worldMatrix);
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
