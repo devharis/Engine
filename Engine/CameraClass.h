@@ -16,10 +16,10 @@ public:
 	DirectX::XMFLOAT3 GetRotation();
 
 	void Render();
-	void GetViewMatrix(DirectX::XMFLOAT4X4&);
+	void GetViewMatrix(DirectX::XMMATRIX&);
 
 private:
 	float m_positionX, m_positionY, m_positionZ;
 	float m_rotationX, m_rotationY, m_rotationZ;
-	DirectX::XMFLOAT4X4 m_viewMatrix;
+	DirectX::XMMATRIX m_viewMatrix;
 };

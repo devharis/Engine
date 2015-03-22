@@ -79,12 +79,12 @@ void CameraClass::Render()
 	lookAt = DirectX::XMVectorAdd(position, lookAt);
 
 	// Finally create the view matrix from the three updated vectors.
-	DirectX::XMLoadFloat4x4(&m_viewMatrix) = DirectX::XMMatrixLookAtLH(position, lookAt, up);
+	m_viewMatrix = DirectX::XMMatrixLookAtLH(position, lookAt, up);
 
 	return;
 }
 
-void CameraClass::GetViewMatrix(DirectX::XMFLOAT4X4& viewMatrix)
+void CameraClass::GetViewMatrix(DirectX::XMMATRIX& viewMatrix)
 {
 	viewMatrix = m_viewMatrix;
 	return;

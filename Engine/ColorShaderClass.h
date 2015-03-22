@@ -13,9 +13,9 @@ class ColorShaderClass
 private:
 	struct MatrixBufferType
 	{
-		DirectX::XMFLOAT4X4 world;
-		DirectX::XMFLOAT4X4 view;
-		DirectX::XMFLOAT4X4 projection;
+		DirectX::XMMATRIX world;
+		DirectX::XMMATRIX view;
+		DirectX::XMMATRIX projection;
 	};
 
 public:
@@ -24,14 +24,14 @@ public:
 	~ColorShaderClass();
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
-	bool Render(ID3D11DeviceContext* deviceContext, int indexCount, const DirectX::XMFLOAT4X4 &worldMatrix, const DirectX::XMFLOAT4X4 &viewMatrix, const DirectX::XMFLOAT4X4 &projectionMatrix);
+	bool Render(ID3D11DeviceContext* deviceContext, int indexCount, DirectX::XMMATRIX &worldMatrix, DirectX::XMMATRIX &viewMatrix, DirectX::XMMATRIX &projectionMatrix);
 
 private:
 	bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
 	void ShutdownShader();
 	void OutputShaderErrorMessage(ID3D10Blob*, HWND, WCHAR*);
 
-	bool SetShaderParameters(ID3D11DeviceContext* deviceContext, const DirectX::XMFLOAT4X4 &worldMatrix, const DirectX::XMFLOAT4X4 &viewMatrix, const DirectX::XMFLOAT4X4 &projectionMatrix);
+	bool SetShaderParameters(ID3D11DeviceContext* deviceContext, DirectX::XMMATRIX &worldMatrix, DirectX::XMMATRIX &viewMatrix, DirectX::XMMATRIX &projectionMatrix);
 	void RenderShader(ID3D11DeviceContext*, int indexCount);
 
 private:

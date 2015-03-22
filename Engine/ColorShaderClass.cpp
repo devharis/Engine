@@ -39,7 +39,7 @@ void ColorShaderClass::Shutdown()
 	return;
 }
 
-bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, const DirectX::XMFLOAT4X4 &worldMatrix, const DirectX::XMFLOAT4X4 &viewMatrix, const DirectX::XMFLOAT4X4 &projectionMatrix)
+bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, DirectX::XMMATRIX &worldMatrix, DirectX::XMMATRIX &viewMatrix, DirectX::XMMATRIX &projectionMatrix)
 {
 	bool result;
 
@@ -243,7 +243,7 @@ void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND h
 	return;
 }
 
-bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, const DirectX::XMFLOAT4X4 &worldMatrix, const DirectX::XMFLOAT4X4 &viewMatrix, const DirectX::XMFLOAT4X4 &projectionMatrix)
+bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, DirectX::XMMATRIX &worldMatrix, DirectX::XMMATRIX &viewMatrix, DirectX::XMMATRIX &projectionMatrix)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -251,9 +251,9 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, c
 	unsigned int bufferNumber;
 
 	// Transpose the matrices to prepare them for the shader.
-	DirectX::XMLoadFloat4x4(&worldMatrix) = DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&worldMatrix));
-	DirectX::XMLoadFloat4x4(&viewMatrix) = DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&viewMatrix));
-	DirectX::XMLoadFloat4x4(&projectionMatrix) = DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&projectionMatrix));
+	worldMatrix = DirectX::XMMatrixTranspose(worldMatrix);
+	viewMatrix = DirectX::XMMatrixTranspose(viewMatrix);
+	projectionMatrix = DirectX::XMMatrixTranspose(projectionMatrix);
 
 	// Lock the constant buffer so it can be written to.
 	result = deviceContext->Map(m_matrixBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
