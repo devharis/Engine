@@ -9,7 +9,7 @@
 using namespace std;
 using namespace DirectX;
 
-class ColorShaderClass
+class ColorShader
 {
 private:
 	struct MatrixBufferType
@@ -20,9 +20,9 @@ private:
 	};
 
 public:
-	ColorShaderClass();
-	ColorShaderClass(const ColorShaderClass&);
-	~ColorShaderClass();
+	ColorShader();
+	ColorShader(const ColorShader&);
+	~ColorShader();
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
 	bool Render(ID3D11DeviceContext* deviceContext, int indexCount, XMFLOAT4X4 worldMatrix, XMFLOAT4X4 viewMatrix, XMFLOAT4X4 projectionMatrix);
