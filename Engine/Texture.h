@@ -1,5 +1,4 @@
-#ifndef _TEXTURECLASS_H_
-#define _TEXTURECLASS_H_
+#pragma once
 
 #include <d3d11.h>
 #include <DDSTextureLoader.h>
@@ -18,6 +17,3 @@ public:
 private:
 	ID3D11ShaderResourceView* m_texture;
 };
-
-
-#endif

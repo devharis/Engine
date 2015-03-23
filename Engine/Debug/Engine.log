@@ -1,0 +1,25 @@
+﻿Build started 2015-03-24 00:01:47.
+     1>Project "C:\Users\Haris\Documents\Github\Engine\Engine\Engine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\Program\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Haris\Documents\Github\Engine\packages\directxtk_desktop_2013.2015.2.25.1\build\native\../../build/native/include/ /ZI /nologo /W3 /WX- /Od /Oy- /D HAS_DIRECTXTK /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Graphic.cpp
+         Graphic.cpp
+     1>c:\users\haris\documents\github\engine\engine\graphic.cpp(21): warning C4316: 'D3D' : object allocated on the heap may not be aligned 16
+     1>c:\users\haris\documents\github\engine\engine\graphic.cpp(31): warning C4316: 'Camera' : object allocated on the heap may not be aligned 16
+       Link:
+         E:\Program\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Haris\Documents\Github\Engine\Debug\Engine.exe" /INCREMENTAL /NOLOGO C:\Users\Haris\Documents\Github\Engine\packages\directxtk_desktop_2013.2015.2.25.1\build\native\../../build/native/lib/Win32/Debug/DirectXTKAudioDX.lib C:\Users\Haris\Documents\Github\Engine\packages\directxtk_desktop_2013.2015.2.25.1\build\native\../../build/native/lib/Win32/Debug/DirectXTK.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Haris\Documents\Github\Engine\Debug\Engine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Haris\Documents\Github\Engine\Debug\Engine.lib" /MACHINE:X86 Debug\Camera.obj
+         Debug\ColorShader.obj
+         Debug\D3D.obj
+         Debug\Graphic.obj
+         Debug\Input.obj
+         Debug\Light.obj
+         Debug\LightShader.obj
+         Debug\WinMain.obj
+         Debug\Model.obj
+         Debug\System.obj
+         Debug\Texture.obj
+         Engine.vcxproj -> C:\Users\Haris\Documents\Github\Engine\Debug\Engine.exe
+     1>Done Building Project "C:\Users\Haris\Documents\Github\Engine\Engine\Engine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.11

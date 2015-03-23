@@ -1,5 +1,4 @@
-#ifndef _CAMERA_H_
-#define _CAMERA_H_
+#pragma once
 
 #include <DirectXMath.h>
 
@@ -22,5 +21,3 @@ private:
 	float m_rotX, m_rotY, m_rotZ;
 	DirectX::XMMATRIX m_viewMatrix;
 };
-
-#endif

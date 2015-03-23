@@ -1,5 +1,4 @@
-#ifndef _GRAPHICSCLASS_H_
-#define _GRAPHICSCLASS_H_
+#pragma once
 
 #include <Windows.h>
 #include "D3D.h"
@@ -33,5 +32,3 @@ private:
 	LightShader* m_LightShader;
 	Light* m_Light;
 };
-
-#endif

@@ -28,6 +28,7 @@ float4 LightPixelShader(PixelInputType input) : SV_TARGET{
 
 	color = saturate(diffuseColor * lightIntensity);
 
+	//Removes the texture from the triangle
 	color = color * textureColor;
 
 	return color;

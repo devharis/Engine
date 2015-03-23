@@ -1,5 +1,4 @@
-#ifndef _COLORSHADER_H_
-#define _COLORSHADER_H_
+#pragma once
 
 #pragma comment(lib, "D3DCompiler.lib")
 #pragma comment(lib, "d3d11.lib")
@@ -61,7 +60,3 @@ private:
 
 	ID3D11Buffer* m_lightBuffer;
 };
-
-
-
-#endif
