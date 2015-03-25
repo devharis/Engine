@@ -1,4 +1,4 @@
-﻿Build started 2015-03-24 00:01:47.
+﻿Build started 2015-03-25 16:48:42.
      1>Project "C:\Users\Haris\Documents\Github\Engine\Engine\Engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\Program\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Haris\Documents\Github\Engine\packages\directxtk_desktop_2013.2015.2.25.1\build\native\../../build/native/include/ /ZI /nologo /W3 /WX- /Od /Oy- /D HAS_DIRECTXTK /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Graphic.cpp
@@ -22,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.11
+Time Elapsed 00:00:01.16

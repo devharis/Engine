@@ -7,6 +7,8 @@
 #include <fstream>
 #include <d3dcompiler.h>
 
+using namespace DirectX;
+
 class LightShader{
 private:
 	struct MatrixBufferType{
@@ -15,6 +17,7 @@ private:
 		DirectX::XMMATRIX proj;
 	};
 	struct LightBufferType{
+		DirectX::XMFLOAT4 ambientColor;
 		DirectX::XMFLOAT4 diffuseColor;
 		DirectX::XMFLOAT3 lightDirection;
 		float padding;
@@ -27,12 +30,13 @@ public:
 	bool Init(ID3D11Device*, HWND);
 	void Shutdown();
 	bool Render(ID3D11DeviceContext*, int, 
-		DirectX::XMMATRIX& world, 
-		DirectX::XMMATRIX& view, 
-		DirectX::XMMATRIX& proj, 
-		ID3D11ShaderResourceView*,
-		DirectX::XMFLOAT3 lightDirection,
-		DirectX::XMFLOAT4 diffuseColor);
+		XMMATRIX& world, 
+		XMMATRIX& view, 
+		XMMATRIX& proj, 
+		ID3D11ShaderResourceView* texture,
+		XMFLOAT3 lightDirection,
+		XMFLOAT4 ambientColor,
+		XMFLOAT4 diffuseColor);
 
 private:
 	bool InitShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
@@ -40,12 +44,13 @@ private:
 	void OutputShaderErrorMessage(ID3D10Blob*, HWND, WCHAR*);
 
 	bool SetShaderParameters(ID3D11DeviceContext*, 
-		DirectX::XMMATRIX& world, 
-		DirectX::XMMATRIX& view,
-		DirectX::XMMATRIX& proj, 
+		XMMATRIX& world, 
+		XMMATRIX& view,
+		XMMATRIX& proj, 
 		ID3D11ShaderResourceView*,
-		DirectX::XMFLOAT3 lightDirection,
-		DirectX::XMFLOAT4 diffuseColor
+		XMFLOAT3 lightDirection,
+		XMFLOAT4 ambientColor,
+		XMFLOAT4 diffuseColor
 		);
 	void RenderShader(ID3D11DeviceContext*, int);
 

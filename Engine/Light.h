@@ -1,20 +1,25 @@
 #pragma once
 
 #include <DirectXMath.h>
+
+using namespace DirectX;
+
 class Light{
 public:
 	Light();
 	Light(const Light&);
 	~Light();
 
+	void SetAmbientColor(float r, float g, float b, float a);
 	void SetDiffuseColor(float r, float g, float b, float a);
 	void SetDirection(float x, float y, float z);
 
-	DirectX::XMFLOAT4 GetDiffuseColor();
-	DirectX::XMFLOAT3 GetDirection();
+	XMFLOAT4 GetAmbientColor();
+	XMFLOAT4 GetDiffuseColor();
+	XMFLOAT3 GetDirection();
 
 private:
-	DirectX::XMFLOAT4 m_diffuseColor;
-	DirectX::XMFLOAT3 m_direction;
-
+	XMFLOAT4 m_ambientColor;
+	XMFLOAT4 m_diffuseColor;
+	XMFLOAT3 m_direction;
 };

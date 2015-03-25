@@ -46,10 +46,11 @@ bool LightShader::Render(ID3D11DeviceContext* deviceContext, int indexCount,
 	XMMATRIX& proj, 
 	ID3D11ShaderResourceView* texture,
 	XMFLOAT3 lightDirection,
+	XMFLOAT4 ambientColor,
 	XMFLOAT4 diffuseColor){
 	bool result;
 
-	result = SetShaderParameters(deviceContext, world, view, proj, texture, lightDirection, diffuseColor);
+	result = SetShaderParameters(deviceContext, world, view, proj, texture, lightDirection, ambientColor, diffuseColor);
 	if (!result){
 		OutputDebugString(L"Failed to set shader parameter \r\n");
 	}
@@ -273,6 +274,7 @@ bool LightShader::SetShaderParameters(
 	XMMATRIX& proj, 
 	ID3D11ShaderResourceView* texture,
 	XMFLOAT3 lightDirection,
+	XMFLOAT4 ambientColor,
 	XMFLOAT4 diffuseColor
 	){
 
@@ -315,7 +317,8 @@ bool LightShader::SetShaderParameters(
 	}
 
 	dataPtr2 = (LightBufferType*)mappedResource.pData;
-
+	
+	dataPtr2->ambientColor = ambientColor;
 	dataPtr2->diffuseColor = diffuseColor;
 	dataPtr2->lightDirection = lightDirection;
 	dataPtr2->padding = 0.0f;

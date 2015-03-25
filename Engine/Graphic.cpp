@@ -67,8 +67,9 @@ bool Graphic::Init(int screenWidth, int screenHeight, HWND hwnd){
 		return false;
 	}
 
+	m_Light->SetAmbientColor(0.15f, 0.15f, 0.15f, 1.0f);
 	m_Light->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
-	m_Light->SetDirection(0.0f, 0.0f, 1.0f);
+	m_Light->SetDirection(1.0f, 0.0f, 0.0f);
 
 	return true;
 }
@@ -147,7 +148,7 @@ bool Graphic::Render(float rotation){
 	m_Model->Render(m_D3D->GetDeviceContext());
 
 	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), world, view, proj, m_Model->GetTexture(),
-									m_Light->GetDirection(), m_Light->GetDiffuseColor());
+									m_Light->GetDirection(), m_Light->GetAmbientColor(), m_Light->GetDiffuseColor());
 
 	if (!result){
 		OutputDebugString(L"Failed to render from colorshader class\r\n");
