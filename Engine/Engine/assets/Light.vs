@@ -1,3 +1,6 @@
+//////////////
+// GLOBALS //
+/////////////
 cbuffer MatrixBuffer{
     matrix worldMatrix;
     matrix viewMatrix;
@@ -9,6 +12,9 @@ cbuffer CameraBuffer{
 	float padding;
 };
 
+//////////////
+// TYPEDEFS //
+/////////////
 struct VertexInputType{
 	float4 position : POSITION;
 	float2 tex : TEXCOORD0;

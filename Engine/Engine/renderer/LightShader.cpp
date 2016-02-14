@@ -245,6 +245,10 @@ bool LightShader::SetShaderParameters(ID3D11DeviceContext* deviceContext, XMMATR
 
 	// Unlock the camera constant buffer.
 	deviceContext->Unmap(m_cameraBuffer, 0);
+	// Set bufferNumber to 1 insted of 0 before setting const buffer. Vertex buffer is the second buffer in shader.
+	bufferNumber = 1;
+
+	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &m_cameraBuffer);
 
 	deviceContext->PSSetShaderResources(0, 1, &texture);
 
