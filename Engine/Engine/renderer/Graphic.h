@@ -1,12 +1,13 @@
 #pragma once
 
 #include <Windows.h>
+#include <DirectXMath.h>
 #include "D3D.h"
 #include "Camera.h"
 #include "Model.h"
 #include "LightShader.h"
 #include "Light.h"
-#include <DirectXMath.h>
+#include "Bitmap.h"
 
 const bool FULL_SCREEN = false;
 const bool VSYNC_ENABLED = true;
@@ -31,4 +32,7 @@ private:
 	Model* m_Model;
 	LightShader* m_LightShader;
 	Light* m_Light;
+	TextureShader m_TextureShader;
+
+	Bitmap* m_Bitmap;
 };

@@ -151,6 +151,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="renderer\Bitmap.cpp" />
     <ClCompile Include="renderer\Camera.cpp" />
     <ClCompile Include="renderer\ColorShader.cpp" />
     <ClCompile Include="renderer\D3D.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="renderer\System.cpp" />
     <ClCompile Include="renderer\Texture.cpp" />
     <ClCompile Include="renderer\WinMain.cpp" />
+    <ClCompile Include="TextureShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\Cube.txt" />
@@ -170,6 +172,7 @@
     <Image Include="assets\seafloor.dds" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="renderer\Bitmap.h" />
     <ClInclude Include="renderer\Camera.h" />
     <ClInclude Include="renderer\ColorShader.h" />
     <ClInclude Include="renderer\D3D.h" />
@@ -181,6 +184,7 @@
     <ClInclude Include="renderer\System.h" />
     <ClInclude Include="renderer\Texture.h" />
     <ClInclude Include="renderer\WinMain.h" />
+    <ClInclude Include="TextureShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,7 +8,8 @@ Graphic::Graphic():
 	m_Camera(nullptr),
 	m_Model(nullptr),
 	m_LightShader(nullptr),
-	m_Light(nullptr){
+	m_Light(nullptr),
+	m_Bitmap(nullptr){
 }
 
 Graphic::Graphic(const Graphic& other){
@@ -76,10 +77,28 @@ bool Graphic::Init(int screenWidth, int screenHeight, HWND hwnd){
 	m_Light->SetSpecularColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light->SetSpecularPower(32.0f);
 
+	// Create the bitmap object
+	m_Bitmap = new Bitmap;
+	if (!m_Bitmap)
+		return false;
+
+	// Init the bitmap object
+	result = m_Bitmap->Init(m_D3D->GetDevice(), screenWidth, screenHeight, L"../assets/seafloor.dds", 256, 256);
+	if (!result){
+		MessageBox(hwnd, L"Could not initialize the bitmap object", L"Error", MB_OK);
+		return false;
+	}
+		
 	return true;
 }
 
 void Graphic::ShutDown(){
+	if(m_Bitmap){
+		m_Bitmap->Shutdown();
+		delete m_Bitmap;
+		m_Bitmap = nullptr;
+	}
+
 	if (m_LightShader){
 		m_LightShader->Shutdown();
 		delete m_LightShader;
@@ -137,7 +156,7 @@ bool Graphic::Frame(){
 }
 
 bool Graphic::Render(float rotation){
-	XMMATRIX viewMatrix, worldMatrix, projMatrix;
+	XMMATRIX viewMatrix, worldMatrix, projMatrix, orthoMatrix;
 	bool result;
 
 	m_D3D->BeginScene(0.4f, 0.8f, 1.0f, 1.0f);
@@ -146,6 +165,19 @@ bool Graphic::Render(float rotation){
 	m_Camera->GetViewMatrix(viewMatrix);
 	m_D3D->GetWorldMatrix(worldMatrix);
 	m_D3D->GetProjectionMatrix(projMatrix);
+
+	m_D3D->GetOrthoMatrix(orthoMatrix);
+
+	// Turn off the Z buffer to begin all 2D rendering
+	m_D3D->TurnZBufferOff();
+
+	// Put the bitmap vertex and index buffers on the graphics pipline to prepare for drawing
+	result = m_Bitmap->Render(m_D3D->GetDeviceContext(), 100, 100);
+	if (!result)
+		return false;
+
+	// Render the bitmap with the texture shader
+	result = m_Texture
 
 	worldMatrix = XMMatrixRotationY(rotation);
 
