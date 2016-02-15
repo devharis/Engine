@@ -38,7 +38,7 @@ bool Graphic::Init(int screenWidth, int screenHeight, HWND hwnd){
 		return false;
 	}
 
-	m_Camera->SetPos(0.f, 0.f, -10.0f);
+	m_Camera->SetPos(0.f, 0.f, -100.0f);
 
 	m_Model = new Model;
 
@@ -77,13 +77,26 @@ bool Graphic::Init(int screenWidth, int screenHeight, HWND hwnd){
 	m_Light->SetSpecularColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light->SetSpecularPower(32.0f);
 
+	// Create the texture shader object.
+	m_TextureShader = new TextureShader;
+	if (!m_TextureShader)
+		return false;
+
+	// Initialize the texture shader object.
+	result = m_TextureShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the texture shader object.", L"Error", MB_OK);
+		return false;
+	}
+
 	// Create the bitmap object
 	m_Bitmap = new Bitmap;
 	if (!m_Bitmap)
 		return false;
 
 	// Init the bitmap object
-	result = m_Bitmap->Init(m_D3D->GetDevice(), screenWidth, screenHeight, L"../assets/seafloor.dds", 256, 256);
+	result = m_Bitmap->Init(m_D3D->GetDevice(), screenWidth, screenHeight, L"../Engine/assets/seafloor.dds", 256, 256);
 	if (!result){
 		MessageBox(hwnd, L"Could not initialize the bitmap object", L"Error", MB_OK);
 		return false;
@@ -168,6 +181,14 @@ bool Graphic::Render(float rotation){
 
 	m_D3D->GetOrthoMatrix(orthoMatrix);
 
+	worldMatrix = XMMatrixRotationY(rotation);
+
+	m_Model->Render(m_D3D->GetDeviceContext());
+
+	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projMatrix, m_Model->GetTexture(),
+		m_Light->GetDirection(), m_Light->GetAmbientColor(), m_Light->GetDiffuseColor(), m_Camera->GetPos(),
+		m_Light->GetSpecularColor(), m_Light->GetSpecularPower());
+
 	// Turn off the Z buffer to begin all 2D rendering
 	m_D3D->TurnZBufferOff();
 
@@ -177,15 +198,12 @@ bool Graphic::Render(float rotation){
 		return false;
 
 	// Render the bitmap with the texture shader
-	result = m_Texture
+	 result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_Bitmap->GetIndexCount(), worldMatrix, viewMatrix, orthoMatrix, m_Bitmap->GetTexture());
+	if (!result)
+		return false;
 
-	worldMatrix = XMMatrixRotationY(rotation);
-
-	m_Model->Render(m_D3D->GetDeviceContext());
-
-	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projMatrix, m_Model->GetTexture(),
-	                               m_Light->GetDirection(), m_Light->GetAmbientColor(), m_Light->GetDiffuseColor(), m_Camera->GetPos(),
-	                               m_Light->GetSpecularColor(), m_Light->GetSpecularPower());
+	// Turn the Z buffer back on now that all 2D rendering has completed.
+	m_D3D->TurnZBufferOn();
 
 	if (!result){
 		OutputDebugString(L"Failed to render from colorshader class\r\n");

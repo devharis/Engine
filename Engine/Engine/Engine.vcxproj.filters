@@ -69,7 +69,7 @@
     <ClCompile Include="renderer\Bitmap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextureShader.cpp">
+    <ClCompile Include="renderer\TextureShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -120,7 +120,7 @@
     <ClInclude Include="renderer\Bitmap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextureShader.h">
+    <ClInclude Include="renderer\TextureShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

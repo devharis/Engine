@@ -2,7 +2,7 @@
 
 #include <d3d11.h>
 #include <DirectXMath.h>
-#include "renderer/Texture.h"
+#include "Texture.h"
 
 using namespace DirectX;
 

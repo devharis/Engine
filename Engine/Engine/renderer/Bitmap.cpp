@@ -144,14 +144,14 @@ bool Bitmap::InitBuffers(ID3D11Device* device)
 
 	// Create index buffer
 	result = device->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
-	if (!result)
+	if (FAILED(result))
 		return false;
 
 	// Release arrays after vertex and index buffers have been created
-	delete []vertices;
+	delete [] vertices;
 	vertices = nullptr;
 
-	delete []indices;
+	delete [] indices;
 	indices = nullptr;
 
 	return true;

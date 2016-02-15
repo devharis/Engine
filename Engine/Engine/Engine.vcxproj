@@ -162,8 +162,8 @@
     <ClCompile Include="renderer\Model.cpp" />
     <ClCompile Include="renderer\System.cpp" />
     <ClCompile Include="renderer\Texture.cpp" />
+    <ClCompile Include="renderer\TextureShader.cpp" />
     <ClCompile Include="renderer\WinMain.cpp" />
-    <ClCompile Include="TextureShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\Cube.txt" />
@@ -183,8 +183,8 @@
     <ClInclude Include="renderer\Model.h" />
     <ClInclude Include="renderer\System.h" />
     <ClInclude Include="renderer\Texture.h" />
+    <ClInclude Include="renderer\TextureShader.h" />
     <ClInclude Include="renderer\WinMain.h" />
-    <ClInclude Include="TextureShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
